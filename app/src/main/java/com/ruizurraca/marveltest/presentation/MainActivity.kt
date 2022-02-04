@@ -1,7 +1,8 @@
-package com.ruizurraca.marveltest
+package com.ruizurraca.marveltest.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ruizurraca.marveltest.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
