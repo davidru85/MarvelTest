@@ -19,8 +19,8 @@ class HomeViewModel @Inject constructor(
     ViewModel() {
 
     companion object {
-        private val OFFSET = "OFFSET"
-        private val NAME = "NAME"
+        val OFFSET = "offset_key"
+        val NAME = "name_key"
     }
 
     private val charactersLiveData = MutableLiveData<Result<CharactersData>>()
@@ -32,8 +32,6 @@ class HomeViewModel @Inject constructor(
 
     fun getCharacters(offset: Int? = null, name: String? = null, limit: Int? = null) {
         viewModelScope.launch {
-            savedStateHandle.get<String>(NAME)
-            savedStateHandle.get<Int>(OFFSET)
             charactersRepository.getCharacters(
                 offset = savedStateHandle.get<Int>(OFFSET) ?: offset,
                 name = savedStateHandle.get<String>(NAME) ?: name,
