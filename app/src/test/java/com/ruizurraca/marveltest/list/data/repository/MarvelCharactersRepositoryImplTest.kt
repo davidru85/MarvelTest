@@ -1,9 +1,8 @@
-package com.ruizurraca.marveltest.data.repository
+package com.ruizurraca.marveltest.list.data.repository
 
 import com.ruizurraca.marveltest.list.data.api.MarvelApi
 import com.ruizurraca.marveltest.list.data.api.MarvelApiCallGenerator
 import com.ruizurraca.marveltest.list.data.models.CallData
-import com.ruizurraca.marveltest.list.data.repository.MarvelCharactersRepositoryImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.every
@@ -55,5 +54,6 @@ class MarvelCharactersRepositoryImplTest {
         }
     }
 
-    private fun buildRepository() = MarvelCharactersRepositoryImpl(marvelApi, marvelApiCallGenerator)
+    private fun buildRepository() =
+        MarvelCharactersRepositoryImpl(marvelApi, marvelApiCallGenerator)
 }
