@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.data.models
+package com.ruizurraca.marveltest.list.data.models
 
 import com.google.gson.annotations.SerializedName
 

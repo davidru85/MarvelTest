@@ -1,12 +1,12 @@
-package com.ruizurraca.marveltest.presentation.home
+package com.ruizurraca.marveltest.list.presentation.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ruizurraca.marveltest.domain.models.CharactersData
-import com.ruizurraca.marveltest.domain.models.Result
-import com.ruizurraca.marveltest.domain.repository.MarvelCharactersRepository
+import com.ruizurraca.marveltest.list.domain.models.CharactersData
+import com.ruizurraca.marveltest.list.domain.models.Result
+import com.ruizurraca.marveltest.list.domain.repository.MarvelCharactersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

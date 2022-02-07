@@ -1,14 +1,13 @@
-package com.ruizurraca.marveltest.presentation.home
+package com.ruizurraca.marveltest.list.presentation.home
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ruizurraca.marveltest.R
 import com.ruizurraca.marveltest.databinding.ItemCharacterBinding
-import com.ruizurraca.marveltest.presentation.home.models.CharactersView
+import com.ruizurraca.marveltest.list.presentation.home.models.CharactersView
 
 class CharactersAdapter : RecyclerView.Adapter<CharactersAdapter.CharacterHolder>() {
 

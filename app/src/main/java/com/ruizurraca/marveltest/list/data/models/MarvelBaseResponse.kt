@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.data.models
+package com.ruizurraca.marveltest.list.data.models
 
 class MarvelBaseDTO<T>(
     var code: Int,

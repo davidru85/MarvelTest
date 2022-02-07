@@ -1,7 +1,7 @@
-package com.ruizurraca.marveltest.data.api
+package com.ruizurraca.marveltest.list.data.api
 
-import com.ruizurraca.marveltest.data.models.DataBaseDTO
-import com.ruizurraca.marveltest.data.models.MarvelBaseDTO
+import com.ruizurraca.marveltest.list.data.models.DataBaseDTO
+import com.ruizurraca.marveltest.list.data.models.MarvelBaseDTO
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

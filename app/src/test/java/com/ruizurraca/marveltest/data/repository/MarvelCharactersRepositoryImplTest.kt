@@ -1,8 +1,9 @@
 package com.ruizurraca.marveltest.data.repository
 
-import com.ruizurraca.marveltest.data.api.MarvelApi
-import com.ruizurraca.marveltest.data.api.MarvelApiCallGenerator
-import com.ruizurraca.marveltest.data.models.CallData
+import com.ruizurraca.marveltest.list.data.api.MarvelApi
+import com.ruizurraca.marveltest.list.data.api.MarvelApiCallGenerator
+import com.ruizurraca.marveltest.list.data.models.CallData
+import com.ruizurraca.marveltest.list.data.repository.MarvelCharactersRepositoryImpl
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.every

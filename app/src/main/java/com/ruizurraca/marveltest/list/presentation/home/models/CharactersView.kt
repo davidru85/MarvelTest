@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.presentation.home.models
+package com.ruizurraca.marveltest.list.presentation.home.models
 
 class CharactersView private constructor(
     val count: Int?,

@@ -1,6 +1,6 @@
-package com.ruizurraca.marveltest.data.repository
+package com.ruizurraca.marveltest.list.data.repository
 
-import com.ruizurraca.marveltest.domain.models.Result
+import com.ruizurraca.marveltest.list.domain.models.Result
 
 abstract class BaseRepository {
 

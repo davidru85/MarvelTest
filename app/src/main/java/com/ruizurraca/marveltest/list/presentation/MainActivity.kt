@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.presentation
+package com.ruizurraca.marveltest.list.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

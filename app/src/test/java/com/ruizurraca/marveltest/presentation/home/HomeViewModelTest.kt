@@ -1,7 +1,8 @@
 package com.ruizurraca.marveltest.presentation.home
 
 import androidx.lifecycle.SavedStateHandle
-import com.ruizurraca.marveltest.domain.repository.MarvelCharactersRepository
+import com.ruizurraca.marveltest.list.domain.repository.MarvelCharactersRepository
+import com.ruizurraca.marveltest.list.presentation.home.HomeViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.coVerify
 import io.mockk.every

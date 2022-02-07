@@ -1,7 +1,7 @@
-package com.ruizurraca.marveltest.data.api
+package com.ruizurraca.marveltest.list.data.api
 
 import com.ruizurraca.marveltest.BuildConfig
-import com.ruizurraca.marveltest.data.models.CallData
+import com.ruizurraca.marveltest.list.data.models.CallData
 import com.ruizurraca.marveltest.utils.md5
 
 class MarvelApiCallGenerator {

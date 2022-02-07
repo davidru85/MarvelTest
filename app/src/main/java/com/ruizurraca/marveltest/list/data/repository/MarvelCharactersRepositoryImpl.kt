@@ -1,12 +1,12 @@
-package com.ruizurraca.marveltest.data.repository
+package com.ruizurraca.marveltest.list.data.repository
 
 import android.util.Log
-import com.ruizurraca.marveltest.data.api.MarvelApi
-import com.ruizurraca.marveltest.data.api.MarvelApiCallGenerator
-import com.ruizurraca.marveltest.data.models.DataBaseDTO
-import com.ruizurraca.marveltest.domain.models.CharactersData
-import com.ruizurraca.marveltest.domain.models.Result
-import com.ruizurraca.marveltest.domain.repository.MarvelCharactersRepository
+import com.ruizurraca.marveltest.list.data.api.MarvelApi
+import com.ruizurraca.marveltest.list.data.api.MarvelApiCallGenerator
+import com.ruizurraca.marveltest.list.data.models.DataBaseDTO
+import com.ruizurraca.marveltest.list.domain.models.CharactersData
+import com.ruizurraca.marveltest.list.domain.models.Result
+import com.ruizurraca.marveltest.list.domain.repository.MarvelCharactersRepository
 import retrofit2.HttpException
 import javax.inject.Inject
 

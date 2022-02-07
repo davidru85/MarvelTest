@@ -1,7 +1,7 @@
-package com.ruizurraca.marveltest.domain.models
+package com.ruizurraca.marveltest.list.domain.models
 
-import com.ruizurraca.marveltest.data.models.DataBaseDTO
-import com.ruizurraca.marveltest.presentation.home.models.CharactersView
+import com.ruizurraca.marveltest.list.data.models.DataBaseDTO
+import com.ruizurraca.marveltest.list.presentation.home.models.CharactersView
 
 class CharactersData private constructor(
     val count: Int?,

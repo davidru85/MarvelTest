@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.presentation.home
+package com.ruizurraca.marveltest.list.presentation.home
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -11,9 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ruizurraca.marveltest.databinding.FragmentHomeBinding
-import com.ruizurraca.marveltest.domain.models.CharactersData
-import com.ruizurraca.marveltest.domain.models.Result
-import com.ruizurraca.marveltest.presentation.home.models.CharactersView
+import com.ruizurraca.marveltest.list.domain.models.CharactersData
+import com.ruizurraca.marveltest.list.domain.models.Result
+import com.ruizurraca.marveltest.list.presentation.home.models.CharactersView
 import com.ruizurraca.marveltest.utils.EndlessRecyclerViewScrollListener
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,11 +1,11 @@
-package com.ruizurraca.marveltest.domain.models
+package com.ruizurraca.marveltest.list.domain.models
 
-import com.ruizurraca.marveltest.data.models.ComicsDTO
-import com.ruizurraca.marveltest.data.models.ThumbnailDTO
-import com.ruizurraca.marveltest.data.models.UrlDTO
-import com.ruizurraca.marveltest.presentation.home.models.ComicsView
-import com.ruizurraca.marveltest.presentation.home.models.ThumbnailView
-import com.ruizurraca.marveltest.presentation.home.models.UrlView
+import com.ruizurraca.marveltest.list.data.models.ComicsDTO
+import com.ruizurraca.marveltest.list.data.models.ThumbnailDTO
+import com.ruizurraca.marveltest.list.data.models.UrlDTO
+import com.ruizurraca.marveltest.list.presentation.home.models.ComicsView
+import com.ruizurraca.marveltest.list.presentation.home.models.ThumbnailView
+import com.ruizurraca.marveltest.list.presentation.home.models.UrlView
 
 class Thumbnail private constructor(
     val path: String?,

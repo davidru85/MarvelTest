@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.domain.models
+package com.ruizurraca.marveltest.list.domain.models
 
 sealed class Result<out T : Any> {
     data class Success<out T : Any>(val data: T) : Result<T>()

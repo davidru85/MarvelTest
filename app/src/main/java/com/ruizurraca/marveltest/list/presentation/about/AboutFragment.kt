@@ -1,4 +1,4 @@
-package com.ruizurraca.marveltest.presentation.about
+package com.ruizurraca.marveltest.list.presentation.about
 
 import android.os.Bundle
 import android.view.LayoutInflater

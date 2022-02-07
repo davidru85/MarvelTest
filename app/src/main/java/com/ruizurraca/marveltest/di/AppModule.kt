@@ -1,10 +1,10 @@
 package com.ruizurraca.marveltest.di
 
 import com.ruizurraca.marveltest.BuildConfig
-import com.ruizurraca.marveltest.data.api.MarvelApi
-import com.ruizurraca.marveltest.data.api.MarvelApiCallGenerator
-import com.ruizurraca.marveltest.data.repository.MarvelCharactersRepositoryImpl
-import com.ruizurraca.marveltest.domain.repository.MarvelCharactersRepository
+import com.ruizurraca.marveltest.list.data.api.MarvelApi
+import com.ruizurraca.marveltest.list.data.api.MarvelApiCallGenerator
+import com.ruizurraca.marveltest.list.data.repository.MarvelCharactersRepositoryImpl
+import com.ruizurraca.marveltest.list.domain.repository.MarvelCharactersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
