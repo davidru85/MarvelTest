@@ -1,4 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 buildscript {
   ext.kotlin_version = "1.6.10"
   ext.dagger_version = "2.40.5"
@@ -12,10 +13,20 @@ buildscript {
   ext.jupiter_version = "5.8.2"
   ext.assertk_jvm_version = "0.25"
   ext.retrofit_version = "2.9.0"
-  ext.logging_interceptor_version = "5.0.0-alpha.2"
+  ext.logging_interceptor_version = "5.0.0-alpha.4"
   ext.gson_version = "2.8.9"
   ext.converter_gson_version = "2.9.0"
   ext.glide_version = "4.12.0"
+
+  def homePath = System.properties['user.home']
+  def secretsPropertiesFile = file("$homePath/.gradle/gradle.properties")
+  def secretProperties = new Properties()
+  secretProperties.load(new FileInputStream(secretsPropertiesFile))
+
+
+  ext.BASE_MARVEL_URL = "https://gateway.marvel.com/"
+  ext.PUBLIC_KEY = "${secretProperties['MARVEL_PUBLIC_KEY']}"
+  ext.PRIVATE_KEY = "${secretProperties['MARVEL_PRIVATE_KEY']}"
 
   repositories {
     google()
