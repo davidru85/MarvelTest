@@ -3,6 +3,7 @@ plugins {
   id 'kotlin-android'
   id 'kotlin-kapt'
   id 'dagger.hilt.android.plugin'
+  id("androidx.navigation.safeargs.kotlin")
 }
 
 def homePath = System.properties['user.home']
@@ -53,6 +54,9 @@ android {
     }
     unitTests.returnDefaultValues = true
   }
+}
+kapt {
+  generateStubs = true
 }
 
 dependencies {

@@ -2,13 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_nav"
+    android:id="@+id/detail_nav"
     app:startDestination="@id/detailFragment">
     
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.ruizurraca.marveltest.detail.presentation.DetailFragment"
         android:label="@string/title_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="char_id"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 </navigation>

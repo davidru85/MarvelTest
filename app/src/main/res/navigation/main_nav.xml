@@ -10,6 +10,9 @@
         android:name="com.ruizurraca.marveltest.list.presentation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -17,4 +20,12 @@
         android:label="@string/title_about"
         tools:layout="@layout/fragment_about" >
     </fragment>
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.ruizurraca.marveltest.detail.presentation.DetailActivity"
+        android:label="DetailActivity">
+        <argument
+            android:name="char_id"
+            app:argType="integer" />
+    </activity>
 </navigation>

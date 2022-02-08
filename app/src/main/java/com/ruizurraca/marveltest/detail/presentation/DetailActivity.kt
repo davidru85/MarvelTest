@@ -34,11 +34,11 @@ class DetailActivity : AppCompatActivity() {
     private fun setupNavigation() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
+        navHostFragment.navController.setGraph(R.navigation.detail_nav, intent.extras)
 
         val appBarConfiguration =
             AppBarConfiguration(setOf(R.id.detailFragment))
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navHostFragment.navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {

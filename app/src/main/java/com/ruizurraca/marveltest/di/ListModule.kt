@@ -1,7 +1,6 @@
 package com.ruizurraca.marveltest.di
 
 import com.ruizurraca.marveltest.BuildConfig
-import com.ruizurraca.marveltest.list.data.api.MarvelApi
 import com.ruizurraca.marveltest.list.data.api.MarvelApiCallGenerator
 import com.ruizurraca.marveltest.list.data.repository.MarvelCharactersRepositoryImpl
 import com.ruizurraca.marveltest.list.domain.repository.MarvelCharactersRepository
@@ -13,14 +12,17 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
+import com.ruizurraca.marveltest.list.data.api.MarvelApi as MarvelApiList
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object ListModule {
 
     @Singleton
     @Provides
+    @Named("interceptorList")
     fun providesHttpLoggingInterceptor() = HttpLoggingInterceptor()
         .apply {
             level = HttpLoggingInterceptor.Level.BODY
@@ -28,7 +30,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    @Named("okHttpList")
+    fun providesOkHttpClient(@Named("interceptorList") httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
         OkHttpClient
             .Builder()
             .addInterceptor(httpLoggingInterceptor)
@@ -36,15 +39,19 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BuildConfig.BASE_URL)
-        .client(okHttpClient)
-        .build()
+    @Named("retrofitList")
+    fun provideRetrofit(@Named("okHttpList") okHttpClient: OkHttpClient): Retrofit =
+        Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(okHttpClient)
+            .build()
 
     @Singleton
     @Provides
-    fun provideMarvelApi(retrofit: Retrofit): MarvelApi = retrofit.create(MarvelApi::class.java)
+    @Named("marvelApiList")
+    fun provideMarvelApiList(@Named("retrofitList") retrofit: Retrofit): MarvelApiList =
+        retrofit.create(MarvelApiList::class.java)
 
     @Singleton
     @Provides
@@ -52,6 +59,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRecordsRepository(marvelApi: MarvelApi, marvelApiCallGenerator: MarvelApiCallGenerator): MarvelCharactersRepository =
+    fun provideMarvelCharactersRepository(
+        @Named("marvelApiList") marvelApi: MarvelApiList,
+        marvelApiCallGenerator: MarvelApiCallGenerator
+    ): MarvelCharactersRepository =
         MarvelCharactersRepositoryImpl(marvelApi, marvelApiCallGenerator)
 }
