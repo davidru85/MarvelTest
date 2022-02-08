@@ -98,9 +98,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun viewCharacterDetail(character: CharactersView.CharacterView) {
-        character.id?.let {
-            val directions = HomeFragmentDirections.actionHomeFragmentToListActivity()
+        val directions = HomeFragmentDirections.actionHomeFragmentToDetailActivity(character.id?:0)
+        findNavController().navigate(directions)
+        /*character.id?.let {
+            val directions = HomeFragmentDirections.actionHomeFragmentToDetailActivity(it)
             findNavController().navigate(directions)
-        }
+        }*/
     }
 }

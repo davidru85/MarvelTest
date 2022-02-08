@@ -8,4 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MarvelTest"
 include ':app'
-include ':list'
+include ':detail'

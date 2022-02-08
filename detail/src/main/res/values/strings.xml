@@ -1,0 +1,8 @@
+<resources>
+    <string name="title_detail">Detail</string>
+    
+    <string name="character_image">Character Image</string>
+    <string name="description">Description</string>
+    <string name="appearances_label">Number of appearances in comics</string>
+    <string name="see_the_comics_label">See the comics!</string>
+</resources>

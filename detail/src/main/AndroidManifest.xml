@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.ruizurraca.detail">
+    
+    <application>
+        <activity
+            android:name=".presentation.DetailActivity"
+            android:exported="false" />
+    </application>
+    
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_list">
+        <dist:delivery>
+            <dist:install-time />
+        </dist:delivery>
+        
+        <dist:fusing dist:include="true" />
+    </dist:module>
+
+</manifest>

@@ -1,21 +1,15 @@
 plugins {
-  id 'com.android.application'
+  id 'com.android.dynamic-feature'
   id 'kotlin-android'
   id 'kotlin-kapt'
   id 'dagger.hilt.android.plugin'
   id "androidx.navigation.safeargs.kotlin"
 }
-
-def homePath = System.properties['user.home']
-def secretsPropertiesFile = file("$homePath/.gradle/gradle.properties")
-def secretProperties = new Properties()
-secretProperties.load(new FileInputStream(secretsPropertiesFile))
-
 android {
   compileSdk 31
 
   defaultConfig {
-    applicationId "com.ruizurraca.marveltest"
+    applicationId "com.ruizurraca.detail"
     minSdk 22
     targetSdk 31
     versionCode 1
@@ -54,15 +48,17 @@ android {
     }
     unitTests.returnDefaultValues = true
   }
-  dynamicFeatures = [':detail']
 }
 
 dependencies {
+
+  implementation project(":app")
 
   implementation "androidx.core:core-ktx:$core_ktx_version"
   implementation "androidx.appcompat:appcompat:$appcompat_version"
   implementation "com.google.android.material:material:$material_version"
   implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+  implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
   // Testing
   testImplementation "io.mockk:mockk:$mockk_version"

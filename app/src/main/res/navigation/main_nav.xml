@@ -11,8 +11,8 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_listActivity"
-            app:destination="@id/listActivity" />
+            android:id="@+id/action_homeFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -21,9 +21,12 @@
         tools:layout="@layout/fragment_about" >
     </fragment>
     <activity
-        android:id="@+id/listActivity"
-        android:name="com.ruizurraca.list.ListActivity"
-        app:moduleName="MarvelTest.list"
-        android:label="activity_list"
-        tools:layout="@layout/activity_list" />
+        android:id="@+id/detailActivity"
+        android:name="com.ruizurraca.detail.presentation.DetailActivity"
+        app:moduleName="MarvelTest.detail"
+        android:label="activity_detail" >
+        <argument
+            android:name="char_id"
+            app:argType="integer" />
+    </activity>
 </navigation>
