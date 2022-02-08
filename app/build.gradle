@@ -3,6 +3,7 @@ plugins {
   id 'kotlin-android'
   id 'kotlin-kapt'
   id 'dagger.hilt.android.plugin'
+  id("androidx.navigation.safeargs.kotlin")
 }
 
 def homePath = System.properties['user.home']
@@ -53,6 +54,7 @@ android {
     }
     unitTests.returnDefaultValues = true
   }
+  dynamicFeatures = [':list']
 }
 
 dependencies {
@@ -79,6 +81,8 @@ dependencies {
   //Navigation
   implementation "androidx.navigation:navigation-fragment-ktx:$nav_version_ktx"
   implementation "androidx.navigation:navigation-ui-ktx:$nav_version_ktx"
+  implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version_ktx"
+
 
   // HTTP
   implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

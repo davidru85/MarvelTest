@@ -10,6 +10,9 @@
         android:name="com.ruizurraca.marveltest.presentation.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_listActivity"
+            app:destination="@id/listActivity" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -17,4 +20,10 @@
         android:label="@string/title_about"
         tools:layout="@layout/fragment_about" >
     </fragment>
+    <activity
+        android:id="@+id/listActivity"
+        android:name="com.ruizurraca.list.ListActivity"
+        app:moduleName="MarvelTest.list"
+        android:label="activity_list"
+        tools:layout="@layout/activity_list" />
 </navigation>
