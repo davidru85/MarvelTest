@@ -5,7 +5,7 @@ import com.ruizurraca.marveltest.detail.data.models.CallData
 import com.ruizurraca.marveltest.utils.md5
 
 class MarvelApiCallGenerator {
-    fun generateCall(charId: String?): CallData {
+    fun generateCall(charId: String): CallData {
         val publicApikey = BuildConfig.MARVEL_PUBLIC_KEY
         val privateApikey = BuildConfig.MARVEL_PRIVATE_KEY
         val timeStamp = System.currentTimeMillis()

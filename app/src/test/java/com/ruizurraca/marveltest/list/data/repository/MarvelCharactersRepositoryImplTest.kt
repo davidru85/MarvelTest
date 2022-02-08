@@ -20,7 +20,7 @@ class MarvelCharactersRepositoryImplTest {
     @MockK
     var marvelApiCallGenerator: MarvelApiCallGenerator = mockk(relaxed = true)
 
-    lateinit var marvelCharactersRepository: MarvelCharactersRepositoryImpl
+    private lateinit var marvelCharactersRepository: MarvelCharactersRepositoryImpl
 
     @BeforeEach
     fun setUp() {

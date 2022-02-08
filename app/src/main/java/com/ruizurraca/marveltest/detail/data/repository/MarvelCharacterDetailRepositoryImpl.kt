@@ -25,34 +25,37 @@ class MarvelCharacterDetailRepositoryImpl @Inject constructor(
     override suspend fun getCharacterDetail(charId: String?): Result<CharactersData> {
         var result: Result<CharactersData> = handleSuccess(CharactersData())
 
-        try {
-            val callData = marvelApiCallGenerator.generateCall(charId)
+        charId?.let { characterId ->
+            try {
+                val callData = marvelApiCallGenerator.generateCall(characterId)
 
-            val response = marvelApi.getCharacterById(
-                apikey = callData.publicApikey,
-                ts = "${callData.timeStamp}",
-                hash = callData.hashSignature,
-                charId = callData.charId)
+                val response = marvelApi.getCharacterById(
+                    apikey = callData.publicApikey,
+                    ts = "${callData.timeStamp}",
+                    hash = callData.hashSignature,
+                    charId = callData.charId
+                )
 
-            response.let {
-                it.body()?.data?.let { data: DataBaseDTO ->
-                    result = handleSuccess(CharactersData.fromDTO(data))
-                }
-                it.errorBody()?.let { responseErrorBody ->
-                    if (responseErrorBody is HttpException) {
-                        responseErrorBody.response()?.code()?.let { errorCode ->
-                            result = handleException(errorCode)
+                response.let {
+                    it.body()?.data?.let { data: DataBaseDTO ->
+                        result = handleSuccess(CharactersData.fromDTO(data))
+                    }
+                    it.errorBody()?.let { responseErrorBody ->
+                        if (responseErrorBody is HttpException) {
+                            responseErrorBody.response()?.code()?.let { errorCode ->
+                                result = handleException(errorCode)
+                            }
+                        } else {
+                            result = handleException(STATE_ERROR)
                         }
-                    } else {
-                        result = handleException(STATE_ERROR)
                     }
                 }
+            } catch (error: HttpException) {
+                Log.e(TAG, "Error: ${error.message}")
+                return handleException(error.code())
+            } catch (error: Exception) {
+                Log.e(TAG, "Error: ${error.message}")
             }
-        } catch (error: HttpException) {
-            Log.e(TAG, "Error: ${error.message}")
-            return handleException(error.code())
-        } catch (error: Exception) {
-            Log.e(TAG, "Error: ${error.message}")
         }
         return result
     }
