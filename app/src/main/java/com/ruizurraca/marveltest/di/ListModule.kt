@@ -55,13 +55,14 @@ object ListModule {
 
     @Singleton
     @Provides
+    @Named("marvelApiCallGeneratorList")
     fun provideMarvelApiCallGenerator(): MarvelApiCallGenerator = MarvelApiCallGenerator()
 
     @Singleton
     @Provides
     fun provideMarvelCharactersRepository(
         @Named("marvelApiList") marvelApi: MarvelApiList,
-        marvelApiCallGenerator: MarvelApiCallGenerator
+        @Named("marvelApiCallGeneratorList") marvelApiCallGenerator: MarvelApiCallGenerator
     ): MarvelCharactersRepository =
         MarvelCharactersRepositoryImpl(marvelApi, marvelApiCallGenerator)
 }

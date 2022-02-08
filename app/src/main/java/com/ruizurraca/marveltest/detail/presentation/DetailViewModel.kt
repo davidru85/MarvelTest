@@ -22,11 +22,11 @@ class DetailViewModel @Inject constructor(
         val ID = "id_key"
     }
 
-    private val charactersLiveData = MutableLiveData<Result<CharactersData>>()
+    private val characterDetailLiveData = MutableLiveData<Result<CharactersData>>()
 
-    val characters: MutableLiveData<Result<CharactersData>>
+    val characterDetail: MutableLiveData<Result<CharactersData>>
         get() {
-            return charactersLiveData
+            return characterDetailLiveData
         }
 
     fun getCharacterDetail(charId: String? = null) {
@@ -35,7 +35,7 @@ class DetailViewModel @Inject constructor(
                 charId = savedStateHandle.get<String>(ID) ?: charId
             ).let {
                 savedStateHandle.set(ID, charId)
-                charactersLiveData.postValue(it)
+                characterDetailLiveData.postValue(it)
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.ruizurraca.marveltest.di
 
 import com.ruizurraca.marveltest.BuildConfig
+import com.ruizurraca.marveltest.detail.data.api.MarvelApiCallGenerator
 import com.ruizurraca.marveltest.detail.data.repository.MarvelCharacterDetailRepositoryImpl
 import com.ruizurraca.marveltest.detail.domain.repository.MarvelCharacterDetailRepository
 import dagger.Module
@@ -39,19 +40,29 @@ object DetailModule {
     @Singleton
     @Provides
     @Named("retrofitDetail")
-    fun provideRetrofit(@Named("okHttpDetail") okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BuildConfig.BASE_URL)
-        .client(okHttpClient)
-        .build()
+    fun provideRetrofit(@Named("okHttpDetail") okHttpClient: OkHttpClient): Retrofit =
+        Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BuildConfig.BASE_URL)
+            .client(okHttpClient)
+            .build()
 
     @Singleton
     @Provides
     @Named("marvelApiDetail")
-    fun provideMarvelApiDetail(@Named("retrofitDetail") retrofit: Retrofit): MarvelApiDetail = retrofit.create(MarvelApiDetail::class.java)
+    fun provideMarvelApiDetail(@Named("retrofitDetail") retrofit: Retrofit): MarvelApiDetail =
+        retrofit.create(MarvelApiDetail::class.java)
 
     @Singleton
     @Provides
-    fun provideMarvelCharacterDetailRepository(@Named("marvelApiDetail") marvelApi: MarvelApiDetail): MarvelCharacterDetailRepository =
-        MarvelCharacterDetailRepositoryImpl(marvelApi)
+    @Named("marvelApiCallGeneratorDetail")
+    fun provideMarvelApiCallGenerator(): MarvelApiCallGenerator = MarvelApiCallGenerator()
+
+    @Singleton
+    @Provides
+    fun provideMarvelCharacterDetailRepository(
+        @Named("marvelApiDetail") marvelApi: MarvelApiDetail,
+        @Named("marvelApiCallGeneratorDetail") marvelApiCallGenerator: MarvelApiCallGenerator
+    ): MarvelCharacterDetailRepository =
+        MarvelCharacterDetailRepositoryImpl(marvelApi, marvelApiCallGenerator)
 }

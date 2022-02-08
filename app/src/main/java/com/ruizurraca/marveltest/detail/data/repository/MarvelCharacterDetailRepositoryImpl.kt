@@ -1,17 +1,18 @@
 package com.ruizurraca.marveltest.detail.data.repository
 
 import android.util.Log
-import com.ruizurraca.marveltest.detail.domain.repository.MarvelCharacterDetailRepository
 import com.ruizurraca.marveltest.detail.data.api.MarvelApi
+import com.ruizurraca.marveltest.detail.data.api.MarvelApiCallGenerator
 import com.ruizurraca.marveltest.detail.data.models.DataBaseDTO
 import com.ruizurraca.marveltest.detail.domain.models.CharactersData
 import com.ruizurraca.marveltest.detail.domain.models.Result
+import com.ruizurraca.marveltest.detail.domain.repository.MarvelCharacterDetailRepository
 import retrofit2.HttpException
-import java.lang.Exception
 import javax.inject.Inject
 
 class MarvelCharacterDetailRepositoryImpl @Inject constructor(
-    private val marvelApi: MarvelApi
+    private val marvelApi: MarvelApi,
+    private val marvelApiCallGenerator: MarvelApiCallGenerator
 ) :
     MarvelCharacterDetailRepository, BaseRepository() {
 
@@ -21,10 +22,17 @@ class MarvelCharacterDetailRepositoryImpl @Inject constructor(
         const val STATE_LOADING = 2
     }
 
-    override suspend fun getCharacterDetail(charId: String?): Result<CharactersData>{
+    override suspend fun getCharacterDetail(charId: String?): Result<CharactersData> {
         var result: Result<CharactersData> = handleSuccess(CharactersData())
-        try{
-            val response = marvelApi.getCharacterById(charId)
+
+        try {
+            val callData = marvelApiCallGenerator.generateCall(charId)
+
+            val response = marvelApi.getCharacterById(
+                apikey = callData.publicApikey,
+                ts = "${callData.timeStamp}",
+                hash = callData.hashSignature,
+                charId = callData.charId)
 
             response.let {
                 it.body()?.data?.let { data: DataBaseDTO ->
@@ -40,8 +48,7 @@ class MarvelCharacterDetailRepositoryImpl @Inject constructor(
                     }
                 }
             }
-        }
-        catch (error: HttpException) {
+        } catch (error: HttpException) {
             Log.e(TAG, "Error: ${error.message}")
             return handleException(error.code())
         } catch (error: Exception) {
