@@ -14,5 +14,7 @@ data class CharactersView(
         var thumbnail: ThumbnailView? = null,
         var comics: ComicsView? = null,
         var urls: List<UrlView?>? = listOf()
-    )
+    ) {
+        fun getComicsUrl(): List<String?>? = urls?.map { it?.urlAddress }
+    }
 }

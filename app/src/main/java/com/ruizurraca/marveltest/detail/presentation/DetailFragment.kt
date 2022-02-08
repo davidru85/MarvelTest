@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.ruizurraca.marveltest.databinding.FragmentDetailBinding
+import com.ruizurraca.marveltest.detail.domain.models.CharactersData
 import com.ruizurraca.marveltest.detail.domain.models.Result
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,7 +57,9 @@ class DetailFragment : Fragment() {
             when (characters) {
                 is Result.Success -> {
                     setLoading(false)
-                    //charactersAdapter.fillData(CharactersData.toView(characters.data))
+                    CharactersData.toView(characters.data).results?.first()?.let { characterView ->
+                        binding.characterDetailView.setValue(characterView)
+                    }
                 }
                 is Result.InProgress -> {
                     setLoading(true)
@@ -66,6 +69,11 @@ class DetailFragment : Fragment() {
                 }
             }
         })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.characterDetailView.clearLinks()
     }
 
     fun initBindings() {}
