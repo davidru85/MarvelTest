@@ -1,7 +1,5 @@
 package com.ruizurraca.marveltest.presentation.home
 
-import android.app.ListActivity
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -98,11 +96,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun viewCharacterDetail(character: CharactersView.CharacterView) {
-        val directions = HomeFragmentDirections.actionHomeFragmentToDetailActivity(character.id?:0)
-        findNavController().navigate(directions)
-        /*character.id?.let {
+        character.id?.let {
             val directions = HomeFragmentDirections.actionHomeFragmentToDetailActivity(it)
             findNavController().navigate(directions)
-        }*/
+        }
     }
 }
