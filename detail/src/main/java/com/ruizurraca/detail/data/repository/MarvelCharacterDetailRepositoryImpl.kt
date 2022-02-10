@@ -23,7 +23,7 @@ class MarvelCharacterDetailRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getCharacterDetail(charId: String?): Result<CharactersData> {
-        var result: Result<CharactersData> = handleSuccess(CharactersData())
+        var result: Result<CharactersData> = handleSuccess(CharactersData.Builder().build())
 
         charId?.let { characterId ->
             try {
