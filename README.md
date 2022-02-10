@@ -5,7 +5,10 @@ Marvel Demo App with Dagger Hilt, MVVM, Clean Architecture...
 ## Installation
 [Marvel API](https://developer.marvel.com/) needs a logged user with both public and private keys.
 The project uses them located in a "gradle.properties" into the /home/.gradle/ directory
-
+```bash
+MARVEL_PUBLIC_KEY=<public_key>
+MARVEL_PRIVATE_KEY=<private_key>
+```
 ## Issues
 As Dagger Hilt is not ready yet for dynamic features modules, there are 2 different branches.
 
