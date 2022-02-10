@@ -28,7 +28,7 @@ class MarvelCharactersRepositoryImpl @Inject constructor(
         limit: Int?
     ): Result<CharactersData> {
 
-        var result: Result<CharactersData> = handleSuccess(CharactersData())
+        var result: Result<CharactersData> = handleSuccess(CharactersData.Builder().build())
 
         try {
             val callData = marvelApiCallGenerator.generateCall(offset, name, limit)
